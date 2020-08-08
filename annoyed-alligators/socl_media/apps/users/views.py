@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .forms import UserUpdateForm, ProfileUpdateForm
+from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 # Create your views here.
 
 
@@ -15,14 +14,14 @@ def signup(request):
     if request.user.is_authenticated:
         return redirect('/')
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('/login')
         else:
             return render(request, 'users/signup.html', {'form': form})
     else:
-        form = UserCreationForm()
+        form = UserRegisterForm()
         return render(request, 'users/signup.html', {'form': form})
 
 
