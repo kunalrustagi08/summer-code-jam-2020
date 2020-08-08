@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
-from django.contrib import messages
-from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
-# Create your views here.
-=======
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
@@ -13,7 +6,6 @@ from django.contrib import messages
 from django.views.generic import ListView
 from .forms import UserUpdateForm, ProfileUpdateForm, UserRegisterForm
 from socl_media.apps.feed.models import Post
->>>>>>> cb7c6c70e6bf5854c21efe77721b1e1aeda1bcc9
 
 
 def signup(request):
