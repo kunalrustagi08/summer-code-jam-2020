@@ -11,6 +11,7 @@ class Message(models.Model):
     recipient: user receiving the message
     sent_at: time at which the message was sent
     """
+
     body = models.TextField(("Body"))
     sender = models.ForeignKey(settings.AUTH_USER_MODEL,
                                related_name='sender_messages',
